@@ -6,8 +6,9 @@ driver = webdriver.Chrome()
 driver.get("https://www.saucedemo.com/v1/index.html")
 
 def test_auth_ok():
+    driver.get('https://www.saucedemo.com/v1/index.html')
     user_name = driver.find_element('xpath', '//*[@id="user-name"]')
-    user_name.send_keys('standart_user')
+    user_name.send_keys('standard_user')
     time.sleep(2)
     password = driver.find_element('xpath', '//*[@id="password"]')
     password.send_keys('secret_sauce')
@@ -15,7 +16,7 @@ def test_auth_ok():
     login = driver.find_element('xpath', '//*[@id="login-button"]')
     login.click()
     time.sleep(2)
-    assert driver.current_url == 'https://www.saucedemo.com/v1/inventory.html', 'Not this URL'
+    assert driver.current_url == 'https://www.saucedemo.com/v1/inventory.html'
 
 def test_auth_not_ok():
     user_name = driver.find_element('xpath', '//*[@id="user-name"]')
@@ -45,7 +46,7 @@ def test_auth_empty():
 
 def test_auth_ok_and_not_ok():
     user_name = driver.find_element('xpath', '//*[@id="user-name"]')
-    user_name.send_keys('standart_user')
+    user_name.send_keys('standard_user')
     time.sleep(2)
     password = driver.find_element('xpath', '//*[@id="password"]')
     password.send_keys('Abc123')
